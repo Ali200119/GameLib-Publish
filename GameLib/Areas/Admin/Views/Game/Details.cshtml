@@ -1,0 +1,133 @@
+﻿@model GameDetailsVM
+
+@{
+    ViewBag.Title = "Game Details";
+}
+
+<style>
+    h1, h2, p {
+        color: black;
+    }
+
+    p {
+        font-size: 16px;
+    }
+</style>
+
+<div style="width: 70%; margin-left: 40px">
+    <div class="mt-3">
+        <h1>Images</h1>
+
+        @foreach (var image in Model.Images)
+        {
+            <img style="width: 150px; height: 150px; border-radius: unset; object-fit: cover" src="~/assets/img/games/@image" />
+        }
+    </div>
+
+    <div class="mt-5">
+        <h1>Name</h1>
+
+        <h2 class="mt-2">@Model.Name</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Description</h1>
+
+        <p class="mt-2">@Html.Raw(Model.Description)</p>
+    </div>
+
+    <div class="mt-5">
+        <h1>Price</h1>
+
+        <h2 class="mt-2">$ @Model.Price</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Developer</h1>
+
+        <h2 class="mt-2">@Model.Developer</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Developer</h1>
+
+        <h2 class="mt-2">@Model.Publisher</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Favorite Game</h1>
+
+        <h2 class="mt-2">@(Model.FavGame?"Yes":"No")</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Released on PlayStation</h1>
+
+        <h2 class="mt-2">@(Model.ForPlayStation?"Yes":"No")</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Released on Xbox</h1>
+
+        <h2 class="mt-2">@(Model.ForXbox?"Yes":"No")</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Released on PC</h1>
+
+        <h2 class="mt-2">@(Model.ForPC?"Yes":"No")</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Release Date</h1>
+
+        <h2 class="mt-2">@Model.ReleaseDate.ToString("dd MMMM yyyy hh:mm tt", new CultureInfo("en"))</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Trailer Link</h1>
+
+        <a href="https://youtu.be/@Model.Trailer" class="mt-2">https://youtu.be/@Model.Trailer</a>
+    </div>
+
+    <div class="mt-5">
+        <h1>Platforms</h1>
+
+        @foreach (var platform in Model.Platforms)
+        {
+            <h2 class="mt-2">@platform</h2>
+        }
+    </div>
+
+    <div class="mt-5">
+        <h1>Genres</h1>
+
+        @foreach (var genre in Model.Genres)
+        {
+            <h2 class="mt-2">@genre</h2>
+        }
+    </div>
+
+    <div class="mt-5">
+        <h1>Create Time</h1>
+
+        <h2 class="mt-2">@Model.CreatedAt.ToString("dd MMMM yyyy hh:mm tt", new CultureInfo("en"))</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Update Time</h1>
+
+        @if (Model.ModifiedAt.ToString("dd MMMM yyyy hh:mm:ss", new CultureInfo("en")) == Model.CreatedAt.ToString("dd MMMM yyyy hh:mm:ss", new CultureInfo("en")))
+        {
+            <h2 class="mt-2">Not modified yet</h2>
+        }
+
+        else
+        {
+            <h2 class="mt-2">@Model.ModifiedAt.ToString("dd MMMM yyyy hh:mm tt", new CultureInfo("en"))</h2>
+        }
+    </div>
+
+
+    <a class="btn mt-5" style="color: white;background-color: gray" asp-area="Admin" asp-controller="Game" asp-action="Index">Back</a>
+</div>

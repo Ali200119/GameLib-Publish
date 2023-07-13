@@ -1,0 +1,105 @@
+﻿@model GameEditVM
+
+@{
+    ViewBag.Title = "Edit Game";
+}
+
+<div style="margin-left: 40px; margin-top: 40px">
+    <form method="post" asp-area="Admin" asp-controller="Game" asp-action="Edit" enctype="multipart/form-data">
+        <div class="mb-3">
+            @foreach (var image in Model.Images)
+            {
+                <img style="width: 150px; height: 150px; border-radius: unset; object-fit: cover" src="~/assets/img/games/@image" />
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Upload your game images here (first image will be main)</label>
+            <input class="form-control" id="formFile" asp-for="Photos">
+            <span class="text-danger" asp-validation-for="Photos"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" placeholder="Name" autocomplete="off">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description"></label>
+            <textarea class="form-control" asp-for="Description" placeholder="Description" autocomplete="off"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price"></label>
+            <input class="form-control" type="number" asp-for="Price" placeholder="Price">
+            <span class="text-danger" asp-validation-for="Price"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Developer"></label>
+            <input class="form-control" asp-for="Developer" placeholder="Developer" autocomplete="off">
+            <span class="text-danger" asp-validation-for="Developer"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Publisher"></label>
+            <input class="form-control" asp-for="Publisher" placeholder="Publisher" autocomplete="off">
+            <span class="text-danger" asp-validation-for="Publisher"></span>
+        </div>
+
+        <div class="mb-3">
+            <input type="checkbox" value="true" asp-for="FavGame">
+            <label asp-for="FavGame"></label>
+        </div>
+
+        <div class="mb-3">
+            <input type="checkbox" value="true" asp-for="ForPlayStation">
+            <label asp-for="ForPlayStation"></label>
+        </div>
+
+        <div class="mb-3">
+            <input type="checkbox" value="true" asp-for="ForXbox">
+            <label asp-for="ForXbox"></label>
+        </div>
+
+        <div class="mb-3">
+            <input type="checkbox" value="true" asp-for="ForPC">
+            <label asp-for="ForPC"></label>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ReleaseDate"></label>
+            <input class="form-control" type="datetime-local" lang="en" asp-for="ReleaseDate">
+            <span class="text-danger" asp-validation-for="ReleaseDate"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Trailer Link (last part after "/" of video on YouTube)</label>
+            <input class="form-control" asp-for="Trailer" placeholder="Trailer" autocomplete="off">
+            <span class="text-danger" asp-validation-for="Trailer"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="GamePlatformIdies"></label>
+            <select class="form-select" asp-for="GamePlatformIdies" asp-items="@ViewBag.Platforms"></select>
+            <span class="text-danger" asp-validation-for="GamePlatformIdies"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="GameGenreIdies"></label>
+            <select class="form-select" asp-for="GameGenreIdies" asp-items="@ViewBag.Genres"></select>
+            <span class="text-danger" asp-validation-for="GameGenreIdies"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-4">Update</button>
+    </form>
+
+    <a class="btn mt-4" style="color: white;background-color: gray" asp-area="Admin" asp-controller="Game" asp-action="Index">Back</a>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

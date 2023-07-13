@@ -1,0 +1,126 @@
+﻿@model ShopVM
+
+@{
+    ViewBag.Title = "Shop";
+}
+
+@section CSS {
+    <link rel="stylesheet" href="~/assets/scss/shop/shop.css">
+}
+
+@section NavBar {
+    <ul class="navbar">
+        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a href="#" class="active">Shop</a></li>
+        <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+        <li><a asp-controller="About" asp-action="Index">About</a></li>
+    </ul>
+}
+
+<div class="container">
+    <section id="games">
+        <h1 class="title">Shop</h1>
+
+        <div class="sort">
+            <select>
+                <option value="name">Sort by name</option>
+                <option value="recent">Sort by recent</option>
+                <option value="low price to high">Sort by price: low to high</option>
+                <option value="high price to low">Sort by price: high to low</option>
+            </select>
+
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="items">
+            <partial name="_GamesPartial" model="Model.Games"/>
+        </div>
+    </section>
+
+    <section id="panel">
+        <div class="search">
+            <h3 class="title">Search</h3>
+
+            <div class="search-input">
+                <input type="text" placeholder="Search games">
+
+                <i class="fa-solid fa-magnifying-glass circle"></i>
+            </div>
+        </div>
+
+        <div class="latest-games">
+            <h3 class="title">Latest Games</h3>
+
+            <div class="items">
+                @foreach (var game in Model.Games.OrderByDescending(g => g.ReleaseDate).Take(5))
+                {
+                    <div class="item">
+                        <a asp-controller="Shop" asp-action="Details" asp-route-id="@game.Id" class="image">
+                            <img src="~/assets/img/games/@game.GameImages.FirstOrDefault(gi => gi.IsMain).Name">
+                        </a>
+
+                        <div class="content">
+                            <a asp-controller="Shop" asp-action="Details" asp-route-id="@game.Id" class="name">@game.Name</a>
+
+                            <div class="price">
+                                <span>$</span>
+                                <span>@game.Price</span>
+                            </div>
+
+                            <a asp-controller="Shop" asp-action="Details" asp-route-id="@game.Id" class="view">View Game</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="platforms">
+            <h3 class="title">Platforms</h3>
+
+            @foreach (var platform in Model.Platforms)
+            {
+                <div class="platform">
+                    <i class="fa-solid fa-circle"></i>
+                    <h4 data-id="@platform.Id" class="name">@platform.Name</h4>
+                    <span>(@platform.GamePlatforms.Select(gp => gp.Game).Count())</span>
+                </div>
+            }
+        </div>
+
+        <div class="genres">
+            <h3 class="title">Genres</h3>
+
+            <div class="items">
+                @foreach (var genre in Model.Genres)
+                {
+                    <h4 data-id="@genre.Id" class="genre">@genre.Name</h4>
+                }
+            </div>
+        </div>
+
+        <div class="social">
+            <h3 class="title">Follow us</h3>
+
+            <div class="items">
+                @foreach (var social in Model.Socials)
+                {
+                    <a href="@social.Link" class="item" style="background-color: @social.Color;">
+                        @Html.Raw(social.Icon)
+                    </a>
+                }
+            </div>
+        </div>
+    </section>
+</div>
+
+<section id="up">
+    <div class="arrow">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/assets/js/components/scroll-to-up.js"></script>
+    <script src="./assets/js/shop.js"></script>
+}

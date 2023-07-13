@@ -1,0 +1,37 @@
+﻿@model List<PlatformListVM>
+
+@{
+    ViewBag.Title = "Platforms";
+}
+
+<div style="width: 70%; margin-left: 40px">
+    <div style="display: flex; justify-content:right">
+        <a asp-area="Admin" asp-controller="Platform" asp-action="Create" style="color: white; background-color: green; border: none" class="btn my-5">Create</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var platform in Model)
+            {
+                <tr>
+                    <td>@platform.Name</td>
+                    <td>
+                        <div style="display: flex">
+                            <a asp-area="Admin" asp-controller="Platform" asp-action="Details" asp-route-id="@platform.Id" style="color: white; background-color: purple" class="btn">Details</a>
+                            <a asp-area="Admin" asp-controller="Platform" asp-action="Edit" asp-route-id="@platform.Id" style="color: black; margin-left: 10px; background-color: yellow" class="btn">Edit</a>
+                            <form asp-area="Admin" asp-controller="Platform" asp-action="Delete" asp-route-id="@platform.Id">
+                                <button style="color: black; margin-left: 10px; background-color: red" type="submit" class="btn">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,46 @@
+﻿@model About
+
+@{
+    ViewBag.Title = "About";
+}
+
+@section CSS {
+    <link rel="stylesheet" href="~/assets/scss/about/about.css">
+}
+
+@section NavBar {
+    <ul class="navbar">
+        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
+        <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+        <li><a href="#" class="active">About</a></li>
+    </ul>
+}
+
+<section id="image">
+    <img src="~/assets/img/about/@Model.Image">
+</section>
+
+<section id="text">
+    <div class="content">
+        <h1 class="title">@Model.Title</h1>
+
+        <div class="description">
+            @Html.Raw(Model.Description)
+        </div>
+
+        <a asp-controller="Home" asp-action="Index" class="btn-shine">Back to Home</a>
+    </div>
+</section>
+
+<section id="up">
+    <div class="arrow">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/assets/js/components/scroll-to-up.js"></script>
+    <script src="~/assets/js/about.js"></script>
+}

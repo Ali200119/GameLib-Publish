@@ -1,0 +1,32 @@
+﻿@model List<SubscribeListVM>
+
+@{
+    ViewBag.Title = "Subscribers";
+}
+
+<div style="width: 70%; margin-left: 40px">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var subscriber in Model)
+            {
+                <tr>
+                    <td>@subscriber.Email</td>
+                    <td>
+                        <div style="display: flex">
+                            <a asp-area="Admin" asp-controller="Subscribe" asp-action="Details" asp-route-id="@subscriber.Id" style="color: white; background-color: purple" class="btn">Details</a>
+                            <form asp-area="Admin" asp-controller="Subscribe" asp-action="Delete" asp-route-id="@subscriber.Id">
+                                <button style="color: black; margin-left: 10px; background-color: red" type="submit" class="btn">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

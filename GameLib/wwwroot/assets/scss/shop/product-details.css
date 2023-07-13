@@ -1,0 +1,803 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #201e2a;
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #201e2a;
+  z-index: 2;
+}
+#loading .title {
+  color: white;
+  font-size: 80px;
+  letter-spacing: 8px;
+}
+#loading .animation {
+  position: absolute;
+  bottom: 20%;
+  color: #d31c3d;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-size: 2em;
+  -webkit-animation: typing 3.5s steps(10) infinite;
+          animation: typing 3.5s steps(10) infinite;
+  overflow: hidden;
+}
+@-webkit-keyframes typing {
+  0%, 90%, 100% {
+    width: 0;
+  }
+  30%, 60% {
+    width: 224.33px;
+  }
+}
+@keyframes typing {
+  0%, 90%, 100% {
+    width: 0;
+  }
+  30%, 60% {
+    width: 224.33px;
+  }
+}
+#loading .animation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #d31c3d;
+  -webkit-animation: blinkCursor 0.8s steps(3) infinite;
+          animation: blinkCursor 0.8s steps(3) infinite;
+}
+@-webkit-keyframes blinkCursor {
+  0%, 75% {
+    opacity: 1;
+  }
+  76%, 100% {
+    opacity: 0;
+  }
+}
+@keyframes blinkCursor {
+  0%, 75% {
+    opacity: 1;
+  }
+  76%, 100% {
+    opacity: 0;
+  }
+}
+#loading .hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s all;
+}
+
+.deactivate {
+  transform: translateY(100vh);
+  transition: ease-in-out 0.3s;
+  transition-delay: 0.5s;
+}
+
+.btn-shine {
+  position: relative;
+  background-color: #201e2a;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: 0.2s all;
+  text-transform: uppercase;
+  transform: skew(-5deg);
+  display: inline-block;
+  border-radius: 5px;
+  overflow: hidden;
+  border: none;
+}
+.btn-shine:hover {
+  background-color: #d31c3d;
+}
+.btn-shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  transition: 0.4s;
+}
+.btn-shine:hover::before {
+  left: 100%;
+}
+
+header {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #242230;
+}
+header .navbar {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 27%;
+}
+header .navbar li a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  transition: 0.3s all;
+  border-radius: 20px;
+}
+header .navbar li a:hover {
+  background-color: #d31c3d;
+}
+header .navbar li .active {
+  background-color: #d31c3d;
+}
+header .user-panel {
+  display: flex;
+  width: 8%;
+  justify-content: space-between;
+}
+header .user-panel a {
+  text-decoration: none;
+}
+header .user-panel .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.3s all;
+  cursor: pointer;
+  color: white;
+  width: 40px;
+  height: 40px;
+}
+header .user-panel .circle:hover {
+  background-color: #39354b;
+}
+header .user-panel .user {
+  position: relative;
+}
+header .user-panel .user .login-register {
+  z-index: 1;
+  position: absolute;
+  top: 75px;
+  right: -75px;
+  background-color: #242230;
+  width: 170px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s all;
+}
+header .user-panel .user .login-register a {
+  color: #bdbbc4;
+  transition: 0.3s all;
+  display: block;
+  padding: 15px 0;
+  padding-left: 30px;
+  font-size: 14px;
+}
+header .user-panel .user .login-register a:hover {
+  color: white;
+}
+
+#search {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  transition: 0.5s all;
+  background-color: #201e2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+#search .search-input {
+  height: 100px;
+  width: 65%;
+  position: relative;
+}
+#search .search-input input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #39354b;
+  padding-left: 20px;
+  padding-right: 80px;
+  font-size: 45px;
+  outline: none;
+  color: white;
+  transition: 0.3s all;
+}
+#search .search-input input:focus {
+  border-bottom-color: white;
+}
+#search .search-input input::-moz-placeholder {
+  color: white;
+}
+#search .search-input input:-ms-input-placeholder {
+  color: white;
+}
+#search .search-input input::placeholder {
+  color: white;
+}
+#search .search-input i {
+  color: white;
+  transition: 0.3s all;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 30px;
+  font-size: 25px;
+  cursor: pointer;
+}
+#search .search-input i:hover {
+  color: #d31c3d;
+}
+#search .close {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  transition: 0.3s all;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+#search .close:hover {
+  color: #d31c3d;
+}
+
+footer {
+  margin-top: 100px;
+}
+footer .social {
+  height: 380px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .social .social-list {
+  display: flex;
+  width: 35%;
+  justify-content: space-between;
+}
+footer .social .social-list .btn-shine {
+  padding: 30px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .copyright {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .copyright h4 {
+  color: #9492a0;
+  font-weight: unset;
+}
+
+#up {
+  position: fixed;
+  z-index: 1;
+  right: 30px;
+  bottom: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s all;
+}
+#up .arrow {
+  transition: 0.3s all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #9492a0;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+}
+#up .arrow i {
+  color: white;
+}
+#up .arrow:hover {
+  background-color: #d31c3d;
+  border-color: #d31c3d;
+}
+
+header {
+  position: fixed;
+  background-color: transparent;
+  width: 100%;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  transition: 0.3s all;
+}
+
+main #cover-key-art-options {
+  position: relative;
+}
+main #cover-key-art-options #cover {
+  height: 500px;
+  overflow: hidden;
+  transform-origin: right bottom;
+  transform: skewY(5deg);
+}
+main #cover-key-art-options #cover img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main #cover-key-art-options #key-art-options {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: -20%;
+  width: 100%;
+  height: 355px;
+}
+main #cover-key-art-options #key-art-options .container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+main #cover-key-art-options #key-art-options .container .key-art {
+  width: 600px;
+  height: 100%;
+  border-radius: 12px;
+}
+main #cover-key-art-options #key-art-options .container .key-art img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px;
+}
+main #cover-key-art-options #key-art-options .container .options {
+  width: 525px;
+  height: 100%;
+  border-radius: 12px;
+  -webkit-backdrop-filter: blur(60px);
+          backdrop-filter: blur(60px);
+}
+main #cover-key-art-options #key-art-options .container .options .title {
+  text-align: center;
+  color: white;
+  margin-top: 30px;
+}
+main #cover-key-art-options #key-art-options .container .options .platforms {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  position: relative;
+}
+main #cover-key-art-options #key-art-options .container .options .platforms select {
+  width: 80%;
+  background-color: transparent;
+  color: white;
+  border: 1px solid gray;
+  padding: 16px;
+  outline: none;
+  font-size: 15px;
+  border-radius: 8px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+}
+main #cover-key-art-options #key-art-options .container .options .platforms i {
+  color: white;
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+}
+main #cover-key-art-options #key-art-options .container .options .price {
+  margin-top: 40px;
+  color: white;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+}
+main #cover-key-art-options #key-art-options .container .options .add-to-cart, main #cover-key-art-options #key-art-options .container .options .coming-soon, main #cover-key-art-options #key-art-options .container .options .login {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+main #cover-key-art-options #key-art-options .container .options .add-to-cart button, main #cover-key-art-options #key-art-options .container .options .coming-soon button, main #cover-key-art-options #key-art-options .container .options .login button {
+  width: 65%;
+  padding: 14px 0;
+  background-color: #d31c3d;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  word-spacing: 5px;
+  letter-spacing: 2px;
+  position: relative;
+  transition: 0.4s all;
+}
+main #cover-key-art-options #key-art-options .container .options .add-to-cart button span, main #cover-key-art-options #key-art-options .container .options .coming-soon button span, main #cover-key-art-options #key-art-options .container .options .login button span {
+  display: block;
+  background-color: white;
+  position: absolute;
+}
+main #cover-key-art-options #key-art-options .container .options .add-to-cart button span:first-child, main #cover-key-art-options #key-art-options .container .options .coming-soon button span:first-child, main #cover-key-art-options #key-art-options .container .options .login button span:first-child {
+  left: 0;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.2s transform;
+}
+main #cover-key-art-options #key-art-options .container .options .add-to-cart button span:nth-child(2), main #cover-key-art-options #key-art-options .container .options .coming-soon button span:nth-child(2), main #cover-key-art-options #key-art-options .container .options .login button span:nth-child(2) {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: 0.2s transform;
+  transition-delay: 0.2s;
+}
+main #cover-key-art-options #key-art-options .container .options .add-to-cart button span:nth-child(3), main #cover-key-art-options #key-art-options .container .options .coming-soon button span:nth-child(3), main #cover-key-art-options #key-art-options .container .options .login button span:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: 0.2s transform;
+  transition-delay: 0.4s;
+}
+main #cover-key-art-options #key-art-options .container .options .add-to-cart button span:last-child, main #cover-key-art-options #key-art-options .container .options .coming-soon button span:last-child, main #cover-key-art-options #key-art-options .container .options .login button span:last-child {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.2s transform;
+  transition-delay: 0.6s;
+}
+main #cover-key-art-options #key-art-options .container .options .add-to-cart button:hover span:first-child, main #cover-key-art-options #key-art-options .container .options .coming-soon button:hover span:first-child, main #cover-key-art-options #key-art-options .container .options .login button:hover span:first-child {
+  transform: scaleY(1);
+  transform-origin: bottom;
+}
+main #cover-key-art-options #key-art-options .container .options .add-to-cart button:hover span:nth-child(2), main #cover-key-art-options #key-art-options .container .options .coming-soon button:hover span:nth-child(2), main #cover-key-art-options #key-art-options .container .options .login button:hover span:nth-child(2) {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+main #cover-key-art-options #key-art-options .container .options .add-to-cart button:hover span:nth-child(3), main #cover-key-art-options #key-art-options .container .options .coming-soon button:hover span:nth-child(3), main #cover-key-art-options #key-art-options .container .options .login button:hover span:nth-child(3) {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+main #cover-key-art-options #key-art-options .container .options .add-to-cart button:hover span:last-child, main #cover-key-art-options #key-art-options .container .options .coming-soon button:hover span:last-child, main #cover-key-art-options #key-art-options .container .options .login button:hover span:last-child {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+main #cover-key-art-options #key-art-options .container .options .add-to-cart button:hover, main #cover-key-art-options #key-art-options .container .options .coming-soon button:hover, main #cover-key-art-options #key-art-options .container .options .login button:hover {
+  background-color: white;
+  color: black;
+  transition-delay: 0.8s;
+}
+main #about-info {
+  display: flex;
+  justify-content: center;
+  margin-top: 170px;
+}
+main #about-info .container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+main #about-info .container .about {
+  width: 600px;
+}
+main #about-info .container .about .title {
+  color: white;
+}
+main #about-info .container .about .description {
+  color: gray;
+  line-height: 23px;
+  margin-top: 35px;
+}
+main #about-info .container .info {
+  width: 525px;
+  display: flex;
+}
+main #about-info .container .info .info-title {
+  color: gray;
+}
+main #about-info .container .info .info-data {
+  margin-left: 50px;
+  color: white;
+}
+main #about-info .container .info .info-title h4, main #about-info .container .info .info-title div, main #about-info .container .info .info-data h4, main #about-info .container .info .info-data div {
+  margin-top: 10px;
+  font-weight: unset;
+}
+main #about-info .container .info .info-title h4:first-child, main #about-info .container .info .info-title div:first-child, main #about-info .container .info .info-data h4:first-child, main #about-info .container .info .info-data div:first-child {
+  margin-top: 0;
+}
+main #visuals {
+  display: flex;
+  justify-content: center;
+  margin-top: 65px;
+  transform: translateY(80px);
+  transition: 1s all;
+  opacity: 0;
+  pointer-events: none;
+}
+main #visuals .container {
+  width: 80%;
+}
+main #visuals .container .title {
+  color: white;
+}
+main #visuals .container .video {
+  height: 79.5vh;
+  margin-top: 35px;
+  border-radius: 12px;
+}
+main #visuals .container .screenshots {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+main #visuals .container .screenshots .large-image {
+  width: 600px;
+  height: 340px;
+  border-radius: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+main #visuals .container .screenshots .images {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  width: 570px;
+}
+main #visuals .container .screenshots .images .image {
+  width: 272px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+main #visuals .container .screenshots img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px;
+}
+main #countdown {
+  margin-top: 65px;
+  height: 300px;
+  position: relative;
+  background-color: black;
+}
+main #countdown img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.4;
+}
+main #countdown .time {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 25px;
+}
+main #countdown .time .days, main #countdown .time .hours, main #countdown .time .minutes, main #countdown .time .seconds {
+  color: white;
+}
+main #countdown .time .days span, main #countdown .time .hours span, main #countdown .time .minutes span, main #countdown .time .seconds span {
+  background-color: #201e2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: skewX(-3deg);
+  border-radius: 3px;
+  padding: 35px 45px;
+  font-size: 50px;
+}
+main #countdown .time .days h4, main #countdown .time .hours h4, main #countdown .time .minutes h4, main #countdown .time .seconds h4 {
+  text-align: center;
+  font-weight: unset;
+  margin-top: 15px;
+  letter-spacing: 1px;
+}
+main #countdown .released {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+main #countdown .released h1 {
+  color: white;
+  letter-spacing: 15px;
+  font-size: 70px;
+}
+main #comments {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  transform: translateY(80px);
+  transition: 1s all;
+  opacity: 0;
+  pointer-events: none;
+}
+main #comments .container {
+  width: 80%;
+}
+main #comments .container .title {
+  color: white;
+  font-weight: unset;
+  font-size: 22px;
+}
+main #comments .container .items {
+  margin-top: 50px;
+}
+main #comments .container .items .item {
+  position: relative;
+  margin-top: 40px;
+}
+main #comments .container .items .item:first-child {
+  margin-top: 0;
+}
+main #comments .container .items .item .username {
+  color: white;
+  font-weight: unset;
+  margin-bottom: 5px;
+}
+main #comments .container .items .item .date {
+  color: #9492a0;
+}
+main #comments .container .items .item .description {
+  background-color: #282636;
+  border-radius: 5px;
+  color: #bdbbc4;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 20px;
+  margin-top: 20px;
+}
+main #comments .container .items .item i {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s all;
+  right: 15px;
+  top: 10px;
+}
+main #comments .container .items .item i:hover {
+  background-color: #d31c3d;
+  border-color: #d31c3d;
+}
+main #comments .container .post-comment {
+  margin-top: 100px;
+}
+main #comments .container .post-comment .title {
+  color: white;
+  font-weight: unset;
+  font-size: 22px;
+}
+main #comments .container .post-comment textarea {
+  width: 100%;
+  margin-top: 25px;
+  padding: 20px;
+  outline: none;
+  background-color: #242230;
+  border: 1.5px solid #443f5a;
+  border-radius: 3px;
+  color: white;
+  transition: 0.2s all;
+  font-size: 14px;
+}
+main #comments .container .post-comment textarea:focus {
+  border-color: white;
+}
+main #comments .container .post-comment .btn-shine {
+  margin-top: 35px;
+  padding: 15px 20px;
+  font-size: 12px;
+  background-color: #d31c3d;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+}
+main #comments .container .post-comment .btn-shine:hover {
+  background-color: white;
+  color: black;
+}
+main #game-added-alert {
+  position: fixed;
+  top: 125px;
+  left: 50%;
+  padding: 20px 35px;
+  background-color: #242230;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s all;
+  border-radius: 5px;
+  transform: translateX(-50%);
+}
+main #full-screen {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  display: none;
+}
+main #full-screen .image {
+  width: 80%;
+  height: 90vh;
+}
+main #full-screen .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main #full-screen .close {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  transition: 0.3s all;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+main #full-screen .close:hover {
+  color: #d31c3d;
+}/*# sourceMappingURL=product-details.css.map */

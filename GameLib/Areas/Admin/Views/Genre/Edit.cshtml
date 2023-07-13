@@ -1,0 +1,24 @@
+﻿@model GenreEditVM
+
+@{
+    ViewBag.Title = "Edit Genre";
+}
+
+<div style="margin-left: 40px; margin-top: 40px">
+    <form method="post" asp-area="Admin" asp-controller="Genre" asp-action="Edit">
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" placeholder="Full Name" autocomplete="off">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-4">Update</button>
+    </form>
+
+    <a class="btn mt-4" style="color: white;background-color: gray" asp-area="Admin" asp-controller="Genre" asp-action="Index">Back</a>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

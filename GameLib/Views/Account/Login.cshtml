@@ -1,0 +1,58 @@
+﻿@model LoginVM
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "_UserLayout";
+}
+
+@section CSS {
+    <link rel="stylesheet" href="~/assets/scss/user/login.css">
+}
+
+@section NavBar {
+    <ul class="navbar">
+        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
+        <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+        <li><a asp-controller="About" asp-action="Index">About</a></li>
+    </ul>
+}
+
+<section id="image">
+    <img src="~/assets/img/static-images/@Model.SectionHeaders["LoginBG"]">
+</section>
+
+<section id="inputs">
+    <form method="post" asp-controller="Account" asp-action="Login">
+        <h1>Login</h1>
+
+        <div style="color: red;" asp-validation-summary="All"></div>
+
+        <div class="inputBox">
+            <input asp-for="UsernameOrEmail" autocomplete="off" placeholder="Email or Username">
+        </div>
+        <span asp-validation-for="UsernameOrEmail" style="color: red;"></span>
+
+        <div class="inputBox">
+            <input asp-for="Password" autocomplete="off" placeholder="Password">
+            <i class="fa-regular fa-eye"></i>
+        </div>
+        <span asp-validation-for="Password" style="color: red;"></span>
+
+        <div class="options">
+            <a asp-controller="Account" asp-action="ForgotPassword" class="forgot-password">Forgot your password?</a>
+            <h5>Dont't have an account? <a asp-controller="Account" asp-action="Register">Register</a></h5>
+        </div>
+
+        <div class="flex">
+            <button type="submit" class="btn-shine">Sign In</button>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/assets/js/user.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}

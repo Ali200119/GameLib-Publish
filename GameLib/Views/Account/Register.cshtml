@@ -1,0 +1,71 @@
+﻿@model RegisterVM
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "_UserLayout";
+}
+
+@section CSS {
+    <link rel="stylesheet" href="~/assets/scss/user/register.css">
+}
+
+@section NavBar {
+    <ul class="navbar">
+        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
+        <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+        <li><a asp-controller="About" asp-action="Index">About</a></li>
+    </ul>
+}
+
+<section id="inputs">
+    <form method="post" asp-controller="Account" asp-action="Register">
+        <h1>Register</h1>
+
+        <div style="color: red;" asp-validation-summary="All"></div>
+
+        <div class="inputBox">
+            <input asp-for="FullName" autocomplete="off" placeholder="Full Name">
+        </div>
+        <span asp-validation-for="FullName" style="color: red;"></span>
+
+        <div class="inputBox">
+            <input asp-for="Email" autocomplete="off" placeholder="Email">
+        </div>
+        <span asp-validation-for="Email" style="color: red;"></span>
+
+        <div class="inputBox">
+            <input asp-for="Username" autocomplete="off" placeholder="Username">
+        </div>
+        <span asp-validation-for="Username" style="color: red;"></span>
+
+        <div class="inputBox">
+            <input asp-for="Password" autocomplete="off" placeholder="Password">
+            <i class="fa-regular fa-eye"></i>
+        </div>
+        <span asp-validation-for="Password" style="color: red;"></span>
+
+        <div class="inputBox">
+            <input asp-for="ConfirmPassword" autocomplete="off" placeholder="Confirm Password">
+            <i class="fa-regular fa-eye"></i>
+        </div>
+        <span asp-validation-for="ConfirmPassword" style="color: red;"></span>
+
+        <div class="flex">
+            <h5>Already have an account? <a asp-controller="Account" asp-action="Login">Login</a></h5>
+
+            <button type="submit" class="btn-shine">Sign Up</button>
+        </div>
+    </form>
+</section>
+
+<section id="image">
+    <img src="~/assets/img/static-images/@Model.SectionHeaders["RegisterBG"]">
+</section>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/assets/js/user.js"></script>
+    <partial name="_ValidationScriptsPartial"/>
+}

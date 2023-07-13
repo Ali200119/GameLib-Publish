@@ -1,0 +1,105 @@
+﻿@model Cart
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+@section CSS {
+    <link rel="stylesheet" href="~/assets/scss/cart/cart.css">
+}
+
+@section NavBar {
+    <ul class="navbar">
+        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
+        <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+        <li><a asp-controller="About" asp-action="Index">About</a></li>
+    </ul>
+}
+
+<div class="container">
+    <h1 class="title">Cart</h1>
+
+    <section id="devide">
+        <section id="games">
+            <table>
+                <thead>
+                    <tr>
+                        <th>GAME</th>
+                        <th>PLATFORM</th>
+                        <th>PRICE</th>
+                        <th>COUNT</th>
+                        <th>SUBTOTAL</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @if (Model.CartGames.Count() != 0)
+                    {
+                        @foreach (var game in Model.CartGames)
+                        {
+                            <tr>
+                                <td class="name">
+                                    <i data-gameId="@game.GameId" data-userId="@Model.UserId" class="fa-solid fa-xmark"></i>
+                                    <img src="~/assets/img/games/@game.Game.GameImages.FirstOrDefault(gi => gi.IsMain).Name">
+                                    <span>@game.Game.Name</span>
+                                </td>
+
+                                <td>@game.Platform</td>
+
+                                <td class="price">
+                                    <span>$</span>
+                                    <span>@game.Game.Price</span>
+                                </td>
+
+                                <td>
+                                    <div class="count">
+                                        <i data-gameId="@game.GameId" data-userId="@Model.UserId" class="fa-solid fa-minus decrease"></i>
+                                        <span>@game.Count</span>
+                                        <i data-gameId="@game.GameId" data-userId="@Model.UserId" class="fa-solid fa-plus increase"></i>
+                                    </div>
+                                </td>
+
+                                <td class="subtotal">
+                                    <span>$</span>
+                                    <span>0</span>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+            <button data-userId="@Model.UserId" class="btn-shine clear">Clear Cart</button>
+        </section>
+
+        <h4 class="empty">Your cart is currently empty</h4>
+
+        <section id="checkout">
+            <h4 class="title">Cart totals</h4>
+
+            <div class="total">
+                <h5>Total</h5>
+
+                <div class="price">
+                    <span>$</span>
+                    <span>0</span>
+                </div>
+            </div>
+
+            <button class="btn-shine" data-userId="@Model.UserId">Proceed to Checkout</button>
+        </section>
+    </section>
+</div>
+
+<section id="up">
+    <div class="arrow">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/assets/js/components/scroll-to-up.js"></script>
+    <script src="~/assets/js/cart.js"></script>
+}

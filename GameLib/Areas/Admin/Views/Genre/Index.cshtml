@@ -1,0 +1,37 @@
+﻿@model List<GenreListVM>
+
+@{
+    ViewBag.Title = "Genres";
+}
+
+<div style="width: 70%; margin-left: 40px">
+    <div style="display: flex; justify-content:right">
+        <a asp-area="Admin" asp-controller="Genre" asp-action="Create" style="color: white; background-color: green; border: none" class="btn my-5">Create</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var genre in Model)
+            {
+                <tr>
+                    <td>@genre.Name</td>
+                    <td>
+                        <div style="display: flex">
+                            <a asp-area="Admin" asp-controller="Genre" asp-action="Details" asp-route-id="@genre.Id" style="color: white; background-color: purple" class="btn">Details</a>
+                            <a asp-area="Admin" asp-controller="Genre" asp-action="Edit" asp-route-id="@genre.Id" style="color: black; margin-left: 10px; background-color: yellow" class="btn">Edit</a>
+                            <form asp-area="Admin" asp-controller="Genre" asp-action="Delete" asp-route-id="@genre.Id">
+                                <button style="color: black; margin-left: 10px; background-color: red" type="submit" class="btn">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

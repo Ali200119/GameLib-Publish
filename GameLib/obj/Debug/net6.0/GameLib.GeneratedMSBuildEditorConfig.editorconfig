@@ -1,0 +1,281 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = GameLib
+build_property.RootNamespace = GameLib
+build_property.ProjectDir = /Users/ali200119/Desktop/GameLib-Publish/GameLib/
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/ali200119/Desktop/GameLib-Publish/GameLib
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/About/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWJvdXQvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/About/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWJvdXQvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/About/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWJvdXQvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Advantage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWR2YW50YWdlL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Advantage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWR2YW50YWdlL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Advantage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWR2YW50YWdlL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Advantage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWR2YW50YWdlL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Blog/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQmxvZy9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Blog/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQmxvZy9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Blog/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQmxvZy9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Blog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQmxvZy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/BlogAuthor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQmxvZ0F1dGhvci9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/BlogAuthor/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQmxvZ0F1dGhvci9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/BlogAuthor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQmxvZ0F1dGhvci9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/BlogAuthor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQmxvZ0F1dGhvci9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Contact/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ29udGFjdC9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQ29udGFjdC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvRGFzaGJvYXJkL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Developer/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvRGV2ZWxvcGVyL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Developer/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvRGV2ZWxvcGVyL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Developer/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvRGV2ZWxvcGVyL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Developer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvRGV2ZWxvcGVyL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Game/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvR2FtZS9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Game/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvR2FtZS9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Game/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvR2FtZS9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Game/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvR2FtZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Genre/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvR2VucmUvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Genre/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvR2VucmUvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Genre/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvR2VucmUvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Genre/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvR2VucmUvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Platform/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUGxhdGZvcm0vQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Platform/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUGxhdGZvcm0vRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Platform/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUGxhdGZvcm0vRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Platform/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUGxhdGZvcm0vSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Social/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU29jaWFsL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Social/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU29jaWFsL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Social/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU29jaWFsL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Social/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU29jaWFsL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Subscribe/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU3Vic2NyaWJlL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/Subscribe/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU3Vic2NyaWJlL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/About/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWJvdXQvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Gb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Account/VerifyEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9WZXJpZnlFbWFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Blog/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmxvZy9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Blog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmxvZy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Cart/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FydC9DaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Cart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FydC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udGFjdC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Error/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXJyb3IvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Search/SearchByBlogs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VhcmNoL1NlYXJjaEJ5QmxvZ3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Search/SearchByGames.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VhcmNoL1NlYXJjaEJ5R2FtZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Shared/_GamesPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19HYW1lc1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Shared/_UserLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Vc2VyTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Shop/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvcC9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Shop/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvcC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ali200119/Desktop/GameLib-Publish/GameLib/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-5if57uluka

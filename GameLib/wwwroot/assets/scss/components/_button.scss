@@ -1,0 +1,35 @@
+.btn-shine {
+    position: relative;
+    background-color: #201e2a;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: 0.2s all;
+    text-transform: uppercase;
+    transform: skew(-5deg);
+    display: inline-block;
+    border-radius: 5px;
+    overflow: hidden;
+    border: none;
+
+    &:hover {
+        background-color: #d31c3d;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, #fff, transparent);
+        transition: 0.4s;
+    }
+
+    &:hover::before {
+        left: 100%;
+    }
+}
+
+// While using must be added padding and font-size

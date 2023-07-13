@@ -1,0 +1,202 @@
+﻿@model HomeVM
+
+@{
+    ViewBag.Title = "GameLib";
+}
+
+@section CSS {
+    <link rel="stylesheet" href="~/assets/slick/slick.css">
+    <link rel="stylesheet" href="~/assets/scss/home/style.css">
+}
+
+@section NavBar {
+    <ul class="navbar">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
+        <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+        <li><a asp-controller="About" asp-action="Index">About</a></li>
+    </ul>
+}
+
+ <section id="loading">
+    <div class="title">GameLib</div>
+
+    <div class="animation">Loading...</div>
+ </section>
+
+<section id="fav-game">
+
+    @{
+        Game favGame = Model.Games.FirstOrDefault(g => g.FavGame);
+    }
+
+    <img src="~/assets/img/games/@favGame.GameImages.FirstOrDefault(gi => gi.IsMain).Name" alt="fav-game">
+
+    <div class="content">
+        <h1>@favGame.Name</h1>
+        <p>
+            @{
+                string gameDescription = favGame.Description;
+                int firstSentenceIndexForGame = gameDescription.IndexOfAny(new char[] { '.', '!', '?' });
+            }
+
+            @gameDescription.Substring(0, firstSentenceIndexForGame + 1)
+        </p>
+        <a asp-controller="Shop" asp-action="Details" asp-route-id="@favGame.Id" class="btn-shine">Check it out</a>
+    </div>
+</section>
+
+<section id="blog">
+    <div class="container">
+        <div class="blog-items">
+            @foreach (var blog in Model.Blogs)
+            {
+                <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id" class="item">
+                    <img src="~/assets/img/blog/@blog.BlogImages.FirstOrDefault(bi => bi.IsMain).Name">
+
+                    <div class="content">
+                        <h5>@blog.Game</h5>
+                        <h3>@blog.Title</h3>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</section>
+
+<section id="games">
+    <div class="container">
+        <h1 class="title">@Model.SectionHeaders["HomeGames"]</h1>
+
+        <div class="tab-menu-header">
+            <ul>
+                <li data-category="playstation" class="active">PlayStation</li>
+                <li data-category="xbox">Xbox</li>
+                <li data-category="pc">PC</li>
+            </ul>
+        </div>
+
+        <div class="tab-menu-items">
+            <div data-category="playstation" class="items">
+                <partial name="_GamesPartial" model="Model.Games.OrderByDescending(g => g.CreatedAt).Where(g => g.ForPlaySation).Take(6)"/>
+            </div>
+
+            <div data-category="xbox" class="items">
+                <partial name="_GamesPartial" model="Model.Games.OrderByDescending(g => g.CreatedAt).Where(g => g.ForXbox).Take(6)"/>
+            </div>
+
+            <div data-category="pc" class="items">
+                <partial name="_GamesPartial" model="@Model.Games.OrderByDescending(g => g.CreatedAt).Where(g => g.ForPC).Take(6)"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="developers">
+    <img class="bg" src="~/assets/img/developers/@Model.SectionHeaders["HomeDevelopersBG"]">
+
+    <div class="logos">
+        @foreach (var developer in Model.Developers.OrderByDescending(d => d.CreatedAt))
+        {
+            <div class="logo">
+                <img src="~/assets/img/developers/@developer.Logo">
+            </div>
+        }
+    </div>
+</section>
+
+<section id="recent-blog">
+    <div class="container">
+        <div class="title">
+            <h1>@Model.SectionHeaders["HomeRecentBlogs"]</h1>
+
+            <a asp-controller="Blog" asp-action="Index">
+                <span style="--i:1">V</span>
+                <span style="--i:2">I</span>
+                <span style="--i:3">E</span>
+                <span style="--i:4">W</span>
+                &nbsp;
+                <span style="--i:5">M</span>
+                <span style="--i:6">O</span>
+                <span style="--i:7">R</span>
+                <span style="--i:8">E</span>
+            </a>
+        </div>
+
+        <div class="posts">
+            @foreach (var blog in Model.Blogs.Take(3))
+            {
+                <div class="post">
+                    <a class="image" asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">
+                        <img src="~/assets/img/blog/@blog.BlogImages.FirstOrDefault(bi => bi.IsMain).Name">
+                        <span>@blog.Game</span>
+                    </a>
+
+                    <div class="content">
+                        <a class="title" asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">@blog.Title</a>
+
+                        <div class="author-date">
+                            <span>By @blog.BlogAuthor.Name</span>
+                            <span>@blog.CreatedAt.ToString("MMMM dd, yyyy", new CultureInfo("en"))</span>
+                        </div>
+
+                        <p class="description">
+                            @blog.ShortDescription
+                        </p>
+
+                        <a class="more" asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">READ MORE</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section id="subscribe">
+    <div class="container">
+        <h1 class="title">@Model.SectionHeaders["HomeSubscribe"]</h1>
+
+        <form class="input">
+            <input type="email" placeholder="Your Email">
+
+            <button class="btn-shine">Subscribe</button>
+        </form>
+    </div>
+</section>
+
+<section id="advantages">
+    <div class="container">
+        <h1 class="title">@Model.SectionHeaders["HomeAdventages"]</h1>
+
+        <div class="items">
+            @foreach (var advantages in Model.Advantages.OrderByDescending(a => a.CreatedAt).Take(3))
+            {
+                <div class="item">
+                    <div class="content">
+                        @Html.Raw(advantages.Icon)
+                        <h3>@advantages.Title</h3>
+                        <p>@advantages.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section id="up">
+    <div class="arrow">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+            integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/assets/slick/slick.min.js"></script>
+     <script src="~/assets/js/components/loading.js"></script>
+    <script src="~/assets/js/components/scroll-to-up.js"></script>
+    <script src="~/assets/js/script.js"></script>
+}

@@ -1,0 +1,41 @@
+﻿@model List<GameListVM>
+
+@{
+    ViewBag.Title = "Games";
+}
+
+<div style="width: 70%; margin-left: 40px">
+    <div style="display: flex; justify-content:right">
+        <a asp-area="Admin" asp-controller="Game" asp-action="Create" style="color: white; background-color: green; border: none" class="btn my-5">Create</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Developer</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var game in Model)
+            {
+                <tr>
+                    <td><img style="width: 50px; height: 50px; object-fit: cover;" src="~/assets/img/games/@game.MainImage" /></td>
+                    <td>@game.Name</td>
+                    <td>@game.Developer</td>
+                    <td>
+                        <div style="display: flex">
+                            <a asp-area="Admin" asp-controller="Game" asp-action="Details" asp-route-id="@game.Id" style="color: white;background-color: purple" class="btn">Details</a>
+                            <a asp-area="Admin" asp-controller="Game" asp-action="Edit" asp-route-id="@game.Id" style="color: black; margin-left: 10px; background-color: yellow" class="btn">Edit</a>
+                            <form asp-area="Admin" asp-controller="Game" asp-action="Delete" asp-route-id="@game.Id">
+                                <button style="color: black; margin-left: 10px; background-color: red" type="submit" class="btn">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

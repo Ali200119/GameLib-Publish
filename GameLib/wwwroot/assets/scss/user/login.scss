@@ -1,0 +1,123 @@
+@use "../utilities/settings";
+@use "../components/button";
+@use "../layouts/header";
+@use "../layouts/up";
+
+main {
+    display: flex;
+
+    #image {
+        width: 50%;
+        height: calc(100vh - 90px);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    #inputs {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 90px);
+
+        form {
+            width: 35%;
+
+            h1 {
+                font-weight: unset;
+                color: white;
+            }
+
+            .inputBox {
+                margin-top: 30px;
+
+                &:nth-child(3) {
+                    margin-top: 50px;
+                }
+
+                position: relative;
+
+                input {
+                    width: 100%;
+                    outline: none;
+                    background-color: #242230;
+                    border: 1.5px solid #443f5a;
+                    border-radius: 3px;
+                    color: white;
+                    padding: 15px;
+                    transition: 0.2s all;
+
+                    &:focus {
+                        border-color: white;
+                    }
+                }
+
+                &:nth-child(3) {
+                    input {
+                        padding-right: 45px;
+                    }
+                }
+
+                i {
+                    position: absolute;
+                    color: white;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                }
+            }
+
+            .options {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 25px;
+
+                .forgot-password {
+                    color: #9492a0;
+                    transition: 0.3s all;
+                    text-decoration: none;
+                    font-size: 13px;
+
+                    &:hover {
+                        color: #d31c3d;
+                    }
+                }
+
+                h5 {
+                    font-weight: unset;
+                    color: #9492a0;
+                    margin-top: 15px;
+
+                    a {
+                        text-decoration: none;
+                        color: white;
+                    }
+                }
+            }
+
+            .flex {
+                display: flex;
+                justify-content: center;
+                margin-top: 25px;
+
+                .btn-shine {
+                    padding: 10px 20px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    background-color: #d31c3d;
+
+                    &:hover {
+                        background-color: white;
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}

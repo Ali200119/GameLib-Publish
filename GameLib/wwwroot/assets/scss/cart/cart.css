@@ -1,0 +1,398 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #201e2a;
+}
+
+.btn-shine {
+  position: relative;
+  background-color: #201e2a;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: 0.2s all;
+  text-transform: uppercase;
+  transform: skew(-5deg);
+  display: inline-block;
+  border-radius: 5px;
+  overflow: hidden;
+  border: none;
+}
+.btn-shine:hover {
+  background-color: #d31c3d;
+}
+.btn-shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  transition: 0.4s;
+}
+.btn-shine:hover::before {
+  left: 100%;
+}
+
+header {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #242230;
+}
+header .navbar {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 27%;
+}
+header .navbar li a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  transition: 0.3s all;
+  border-radius: 20px;
+}
+header .navbar li a:hover {
+  background-color: #d31c3d;
+}
+header .navbar li .active {
+  background-color: #d31c3d;
+}
+header .user-panel {
+  display: flex;
+  width: 8%;
+  justify-content: space-between;
+}
+header .user-panel a {
+  text-decoration: none;
+}
+header .user-panel .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.3s all;
+  cursor: pointer;
+  color: white;
+  width: 40px;
+  height: 40px;
+}
+header .user-panel .circle:hover {
+  background-color: #39354b;
+}
+header .user-panel .user {
+  position: relative;
+}
+header .user-panel .user .login-register {
+  z-index: 1;
+  position: absolute;
+  top: 75px;
+  right: -75px;
+  background-color: #242230;
+  width: 170px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s all;
+}
+header .user-panel .user .login-register a {
+  color: #bdbbc4;
+  transition: 0.3s all;
+  display: block;
+  padding: 15px 0;
+  padding-left: 30px;
+  font-size: 14px;
+}
+header .user-panel .user .login-register a:hover {
+  color: white;
+}
+
+#search {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  transition: 0.5s all;
+  background-color: #201e2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+#search .search-input {
+  height: 100px;
+  width: 65%;
+  position: relative;
+}
+#search .search-input input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #39354b;
+  padding-left: 20px;
+  padding-right: 80px;
+  font-size: 45px;
+  outline: none;
+  color: white;
+  transition: 0.3s all;
+}
+#search .search-input input:focus {
+  border-bottom-color: white;
+}
+#search .search-input input::-moz-placeholder {
+  color: white;
+}
+#search .search-input input:-ms-input-placeholder {
+  color: white;
+}
+#search .search-input input::placeholder {
+  color: white;
+}
+#search .search-input i {
+  color: white;
+  transition: 0.3s all;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 30px;
+  font-size: 25px;
+  cursor: pointer;
+}
+#search .search-input i:hover {
+  color: #d31c3d;
+}
+#search .close {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  transition: 0.3s all;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+#search .close:hover {
+  color: #d31c3d;
+}
+
+footer {
+  margin-top: 100px;
+}
+footer .social {
+  height: 380px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .social .social-list {
+  display: flex;
+  width: 35%;
+  justify-content: space-between;
+}
+footer .social .social-list .btn-shine {
+  padding: 30px;
+  font-size: 30px;
+}
+footer .copyright {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .copyright h4 {
+  color: #9492a0;
+  font-weight: unset;
+}
+
+#up {
+  position: fixed;
+  z-index: 1;
+  right: 30px;
+  bottom: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s all;
+}
+#up .arrow {
+  transition: 0.3s all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #9492a0;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+}
+#up .arrow i {
+  color: white;
+}
+#up .arrow:hover {
+  background-color: #d31c3d;
+  border-color: #d31c3d;
+}
+
+main {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+main .container {
+  width: 80%;
+}
+main .container .title {
+  color: white;
+  font-size: 35px;
+  font-weight: unset;
+}
+main .container #devide {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+}
+main .container #devide #games {
+  width: 70%;
+  border: 2px solid #39354b;
+  border-radius: 4px;
+  padding: 25px;
+}
+main .container #devide #games table {
+  width: 100%;
+  border-collapse: collapse;
+}
+main .container #devide #games table thead {
+  border-bottom: 2px solid #2c2a3c;
+}
+main .container #devide #games table thead tr th {
+  padding-bottom: 40px;
+  color: #b9b7c0;
+  font-weight: unset;
+}
+main .container #devide #games table tbody tr td {
+  color: white;
+  text-align: center;
+  padding: 25px 0;
+}
+main .container #devide #games table tbody tr .name {
+  display: flex;
+  align-items: center;
+}
+main .container #devide #games table tbody tr .name i {
+  color: #b9b7c0;
+  font-size: 25px;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+main .container #devide #games table tbody tr .name i:hover {
+  color: white;
+}
+main .container #devide #games table tbody tr .name img {
+  width: 90px;
+  height: 90px;
+  border-radius: 3px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-left: 25px;
+}
+main .container #devide #games table tbody tr .name span {
+  margin-left: 25px;
+}
+main .container #devide #games table tbody tr .count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #39354b;
+  padding: 5px;
+  border-radius: 25px;
+}
+main .container #devide #games table tbody tr .count i {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: #39354b;
+  color: #b9b7c0;
+  transition: 0.3s all;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main .container #devide #games table tbody tr .count i:hover {
+  background-color: #d31c3d;
+}
+main .container #devide #games table tbody tr .count span {
+  color: white;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+main .container #devide #games .clear {
+  padding: 10px 15px;
+  font-size: 13px;
+  background-color: #d31c3d;
+  cursor: pointer;
+  margin-top: 30px;
+}
+main .container #devide #games .clear:hover {
+  background-color: white;
+  color: black;
+}
+main .container #devide .empty {
+  font-weight: unset;
+  padding: 25px 0 25px 20px;
+  background-color: #242230;
+  color: #b9b7c0;
+  border-radius: 3px;
+  width: 100%;
+  display: none;
+}
+main .container #devide #checkout {
+  background-color: #242230;
+  border-radius: 4px;
+  padding: 30px;
+  width: 25%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+main .container #devide #checkout .title {
+  font-size: 18px;
+  font-weight: unset;
+  text-align: center;
+}
+main .container #devide #checkout .total {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+  margin-top: 30px;
+}
+main .container #devide #checkout .btn-shine {
+  padding: 13px 0;
+  width: 100%;
+  font-size: 14px;
+  background-color: #d31c3d;
+  cursor: pointer;
+  margin-top: 30px;
+}
+main .container #devide #checkout .btn-shine:hover {
+  background-color: white;
+  color: black;
+}/*# sourceMappingURL=cart.css.map */

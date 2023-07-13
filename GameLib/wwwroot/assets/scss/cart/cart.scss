@@ -1,0 +1,180 @@
+@use "../utilities/settings";
+@use "../components/button";
+@use "../layouts/header";
+@use "../layouts/footer";
+@use "../layouts/up";
+
+main {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+
+    .container {
+        width: 80%;
+
+        .title {
+            color: white;
+            font-size: 35px;
+            font-weight: unset;
+        }
+
+        #devide {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 70px;
+
+            #games {
+                width: 70%;
+                border: 2px solid #39354b;
+                border-radius: 4px;
+                padding: 25px;
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+
+                    thead {
+                        border-bottom: 2px solid #2c2a3c;
+
+                        tr {
+                            th {
+                                padding-bottom: 40px;
+                                color: #b9b7c0;
+                                font-weight: unset;
+                            }
+                        }
+                    }
+
+                    tbody {
+                        tr {
+                            td {
+                                color: white;
+                                text-align: center;
+                                padding: 25px 0;
+                            }
+
+                            .name {
+                                display: flex;
+                                align-items: center;
+
+                                i {
+                                    color: #b9b7c0;
+                                    font-size: 25px;
+                                    transition: 0.3s all;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        color: white;
+                                    }
+                                }
+
+                                img {
+                                    width: 90px;
+                                    height: 90px;
+                                    border-radius: 3px;
+                                    object-fit: cover;
+                                    margin-left: 25px;
+                                }
+
+                                span {
+                                    margin-left: 25px;
+                                }
+                            }
+
+                            .count {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                border: 2px solid #39354b;
+                                padding: 5px;
+                                border-radius: 25px;
+
+                                i {
+                                    display: flex;
+                                    width: 30px;
+                                    height: 30px;
+                                    justify-content: center;
+                                    align-items: center;
+                                    background-color: #39354b;
+                                    color: #b9b7c0;
+                                    transition: 0.3s all;
+                                    border-radius: 50%;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        background-color: #d31c3d;
+                                    }
+                                }
+
+                                span {
+                                    color: white;
+                                    margin-left: 7px;
+                                    margin-right: 7px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .clear {
+                    padding: 10px 15px;
+                    font-size: 13px;
+                    background-color: #d31c3d;
+                    cursor: pointer;
+                    margin-top: 30px;
+
+                    &:hover {
+                        background-color: white;
+                        color: black;
+                    }
+                }
+            }
+
+            .empty {
+                font-weight: unset;
+                padding: 25px 0 25px 20px;
+                background-color: #242230;
+                color: #b9b7c0;
+                border-radius: 3px;
+                width: 100%;
+                display: none;
+            }
+
+            #checkout {
+                background-color: #242230;
+                border-radius: 4px;
+                padding: 30px;
+                width: 25%;
+                height: fit-content;
+
+                .title {
+                    font-size: 18px;
+                    font-weight: unset;
+                    text-align: center;
+                }
+
+                .total {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    color: white;
+                    margin-top: 30px;
+                }
+
+                .btn-shine {
+                    padding: 13px 0;
+                    width: 100%;
+                    font-size: 14px;
+                    background-color: #d31c3d;
+                    cursor: pointer;
+                    margin-top: 30px;
+
+                    &:hover {
+                        background-color: white;
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}

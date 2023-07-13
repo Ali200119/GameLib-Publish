@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #201e2a;
+}
+
+.btn-shine {
+  position: relative;
+  background-color: #201e2a;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: 0.2s all;
+  text-transform: uppercase;
+  transform: skew(-5deg);
+  display: inline-block;
+  border-radius: 5px;
+  overflow: hidden;
+  border: none;
+}
+.btn-shine:hover {
+  background-color: #d31c3d;
+}
+.btn-shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  transition: 0.4s;
+}
+.btn-shine:hover::before {
+  left: 100%;
+}
+
+header {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #242230;
+}
+header .navbar {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 27%;
+}
+header .navbar li a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  transition: 0.3s all;
+  border-radius: 20px;
+}
+header .navbar li a:hover {
+  background-color: #d31c3d;
+}
+header .navbar li .active {
+  background-color: #d31c3d;
+}
+header .user-panel {
+  display: flex;
+  width: 8%;
+  justify-content: space-between;
+}
+header .user-panel a {
+  text-decoration: none;
+}
+header .user-panel .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.3s all;
+  cursor: pointer;
+  color: white;
+  width: 40px;
+  height: 40px;
+}
+header .user-panel .circle:hover {
+  background-color: #39354b;
+}
+header .user-panel .user {
+  position: relative;
+}
+header .user-panel .user .login-register {
+  z-index: 1;
+  position: absolute;
+  top: 75px;
+  right: -75px;
+  background-color: #242230;
+  width: 170px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s all;
+}
+header .user-panel .user .login-register a {
+  color: #bdbbc4;
+  transition: 0.3s all;
+  display: block;
+  padding: 15px 0;
+  padding-left: 30px;
+  font-size: 14px;
+}
+header .user-panel .user .login-register a:hover {
+  color: white;
+}
+
+#search {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  transition: 0.5s all;
+  background-color: #201e2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+#search .search-input {
+  height: 100px;
+  width: 65%;
+  position: relative;
+}
+#search .search-input input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #39354b;
+  padding-left: 20px;
+  padding-right: 80px;
+  font-size: 45px;
+  outline: none;
+  color: white;
+  transition: 0.3s all;
+}
+#search .search-input input:focus {
+  border-bottom-color: white;
+}
+#search .search-input input::-moz-placeholder {
+  color: white;
+}
+#search .search-input input:-ms-input-placeholder {
+  color: white;
+}
+#search .search-input input::placeholder {
+  color: white;
+}
+#search .search-input i {
+  color: white;
+  transition: 0.3s all;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 30px;
+  font-size: 25px;
+  cursor: pointer;
+}
+#search .search-input i:hover {
+  color: #d31c3d;
+}
+#search .close {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  transition: 0.3s all;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+#search .close:hover {
+  color: #d31c3d;
+}
+
+footer {
+  margin-top: 100px;
+}
+footer .social {
+  height: 380px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .social .social-list {
+  display: flex;
+  width: 35%;
+  justify-content: space-between;
+}
+footer .social .social-list .btn-shine {
+  padding: 30px;
+  font-size: 30px;
+}
+footer .copyright {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .copyright h4 {
+  color: #9492a0;
+  font-weight: unset;
+}
+
+#up {
+  position: fixed;
+  z-index: 1;
+  right: 30px;
+  bottom: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s all;
+}
+#up .arrow {
+  transition: 0.3s all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #9492a0;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+}
+#up .arrow i {
+  color: white;
+}
+#up .arrow:hover {
+  background-color: #d31c3d;
+  border-color: #d31c3d;
+}
+
+main {
+  margin-top: 150px;
+}
+main #content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+main #content .status-code {
+  color: #d31c3d;
+  font-size: 200px;
+}
+main #content .description {
+  color: white;
+  font-weight: unset;
+  margin-top: 35px;
+  font-size: 30px;
+}
+main #content .btn-shine {
+  margin-top: 40px;
+  padding: 17px 21px;
+  font-size: 16px;
+  background-color: #d31c3d;
+  cursor: pointer;
+}
+main #content .btn-shine:hover {
+  background-color: white;
+  color: black;
+}
+
+footer {
+  margin-top: 200px;
+}/*# sourceMappingURL=error.css.map */

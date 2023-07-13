@@ -1,0 +1,39 @@
+footer {
+    margin-top: 100px;
+
+    .social {
+        height: 380px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .social-list {
+            display: flex;
+            width: 35%;
+            justify-content: space-between;
+
+            .btn-shine {
+                padding: 30px;
+                font-size: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    .copyright {
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h4 {
+            color: #9492a0;
+            font-weight: unset;
+        }
+    }
+}

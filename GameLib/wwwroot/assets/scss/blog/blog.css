@@ -1,0 +1,542 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #201e2a;
+}
+
+.btn-shine {
+  position: relative;
+  background-color: #201e2a;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: 0.2s all;
+  text-transform: uppercase;
+  transform: skew(-5deg);
+  display: inline-block;
+  border-radius: 5px;
+  overflow: hidden;
+  border: none;
+}
+.btn-shine:hover {
+  background-color: #d31c3d;
+}
+.btn-shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  transition: 0.4s;
+}
+.btn-shine:hover::before {
+  left: 100%;
+}
+
+header {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #242230;
+}
+header .navbar {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 27%;
+}
+header .navbar li a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  transition: 0.3s all;
+  border-radius: 20px;
+}
+header .navbar li a:hover {
+  background-color: #d31c3d;
+}
+header .navbar li .active {
+  background-color: #d31c3d;
+}
+header .user-panel {
+  display: flex;
+  width: 8%;
+  justify-content: space-between;
+}
+header .user-panel a {
+  text-decoration: none;
+}
+header .user-panel .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.3s all;
+  cursor: pointer;
+  color: white;
+  width: 40px;
+  height: 40px;
+}
+header .user-panel .circle:hover {
+  background-color: #39354b;
+}
+header .user-panel .user {
+  position: relative;
+}
+header .user-panel .user .login-register {
+  z-index: 1;
+  position: absolute;
+  top: 75px;
+  right: -75px;
+  background-color: #242230;
+  width: 170px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s all;
+}
+header .user-panel .user .login-register a {
+  color: #bdbbc4;
+  transition: 0.3s all;
+  display: block;
+  padding: 15px 0;
+  padding-left: 30px;
+  font-size: 14px;
+}
+header .user-panel .user .login-register a:hover {
+  color: white;
+}
+
+#search {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  transition: 0.5s all;
+  background-color: #201e2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+#search .search-input {
+  height: 100px;
+  width: 65%;
+  position: relative;
+}
+#search .search-input input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #39354b;
+  padding-left: 20px;
+  padding-right: 80px;
+  font-size: 45px;
+  outline: none;
+  color: white;
+  transition: 0.3s all;
+}
+#search .search-input input:focus {
+  border-bottom-color: white;
+}
+#search .search-input input::-moz-placeholder {
+  color: white;
+}
+#search .search-input input:-ms-input-placeholder {
+  color: white;
+}
+#search .search-input input::placeholder {
+  color: white;
+}
+#search .search-input i {
+  color: white;
+  transition: 0.3s all;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 30px;
+  font-size: 25px;
+  cursor: pointer;
+}
+#search .search-input i:hover {
+  color: #d31c3d;
+}
+#search .close {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  transition: 0.3s all;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+#search .close:hover {
+  color: #d31c3d;
+}
+
+footer {
+  margin-top: 100px;
+}
+footer .social {
+  height: 380px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .social .social-list {
+  display: flex;
+  width: 35%;
+  justify-content: space-between;
+}
+footer .social .social-list .btn-shine {
+  padding: 30px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .copyright {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .copyright h4 {
+  color: #9492a0;
+  font-weight: unset;
+}
+
+#up {
+  position: fixed;
+  z-index: 1;
+  right: 30px;
+  bottom: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s all;
+}
+#up .arrow {
+  transition: 0.3s all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #9492a0;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+}
+#up .arrow i {
+  color: white;
+}
+#up .arrow:hover {
+  background-color: #d31c3d;
+  border-color: #d31c3d;
+}
+
+main #fav-blog {
+  height: 410px;
+  overflow: hidden;
+  background-color: black;
+  position: relative;
+}
+main #fav-blog img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.6;
+}
+main #fav-blog .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+main #fav-blog .content .title {
+  color: white;
+  font-size: 35px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+main #fav-blog .content .btn-shine {
+  padding: 14px 28px;
+  font-size: 14px;
+  margin-top: 15px;
+}
+main #devide {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+main #devide .container {
+  width: 80%;
+  display: flex;
+}
+main #devide .container #panel {
+  width: 30%;
+}
+main #devide .container #panel .search .title {
+  color: white;
+  font-weight: unset;
+}
+main #devide .container #panel .search .search-input {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+main #devide .container #panel .search .search-input input {
+  height: 47px;
+  width: 350px;
+  outline: none;
+  background-color: #242230;
+  border: 1.5px solid #443f5a;
+  border-radius: 3px;
+  color: white;
+  padding: 15px;
+  transition: 0.2s all;
+  font-size: 14px;
+}
+main #devide .container #panel .search .search-input input:focus {
+  border-color: white;
+}
+main #devide .container #panel .search .search-input i {
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.3s all;
+  cursor: pointer;
+  color: white;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+main #devide .container #panel .search .search-input i:hover {
+  background-color: #39354b;
+}
+main #devide .container #panel .latest-posts {
+  margin-top: 70px;
+}
+main #devide .container #panel .latest-posts .title {
+  color: white;
+  font-weight: unset;
+}
+main #devide .container #panel .latest-posts .posts {
+  margin-top: 30px;
+}
+main #devide .container #panel .latest-posts .posts .post {
+  display: flex;
+  margin-top: 40px;
+}
+main #devide .container #panel .latest-posts .posts .post:hover .image {
+  transform: scale(0.95);
+}
+main #devide .container #panel .latest-posts .posts .post .image {
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  transition: 0.3s all;
+  display: block;
+}
+main #devide .container #panel .latest-posts .posts .post .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+main #devide .container #panel .latest-posts .posts .post .content {
+  margin-left: 10px;
+}
+main #devide .container #panel .latest-posts .posts .post .content .title {
+  color: white;
+  font-weight: unset;
+  margin-top: 5px;
+  text-decoration: none;
+  transition: 0.3s all;
+}
+main #devide .container #panel .latest-posts .posts .post .content .title:hover {
+  color: #d31c3d;
+}
+main #devide .container #panel .latest-posts .posts .post .content .author-date {
+  margin-top: 15px;
+}
+main #devide .container #panel .latest-posts .posts .post .content .author-date span {
+  color: #bdbbc4;
+  font-size: 15px;
+}
+main #devide .container #panel .latest-posts .posts .post .content .author-date span:last-child {
+  margin-left: 15px;
+}
+main #devide .container #panel .latest-posts .posts .post:first-child {
+  margin-top: 0;
+}
+main #devide .container #panel .social {
+  margin-top: 70px;
+}
+main #devide .container #panel .social .title {
+  color: white;
+  font-weight: unset;
+}
+main #devide .container #panel .social .items {
+  margin-top: 35px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+main #devide .container #panel .social .items .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-decoration: none;
+}
+main #devide .container #panel .social .items .item i {
+  color: white;
+}
+main #devide .container #posts {
+  margin-left: 70px;
+}
+main #devide .container #posts .items .item {
+  display: flex;
+}
+main #devide .container #posts .items .item:nth-child(2), main #devide .container #posts .items .item:last-child {
+  margin-top: 40px;
+}
+main #devide .container #posts .items .item:hover img {
+  transform: scale(1.05);
+}
+main #devide .container #posts .items .item .image {
+  overflow: hidden;
+  position: relative;
+  width: 420px;
+  height: 280px;
+  border-radius: 5px;
+  display: block;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+main #devide .container #posts .items .item .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.3s all;
+}
+main #devide .container #posts .items .item .image span {
+  text-transform: uppercase;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 13px;
+  color: white;
+  padding: 4px 8px;
+  background-color: #39354b;
+  font-weight: bold;
+  transform: skew(-5deg);
+  border-radius: 3px;
+}
+main #devide .container #posts .items .item .content {
+  margin-left: 35px;
+  margin-top: 20px;
+}
+main #devide .container #posts .items .item .content .title {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s all;
+  font-size: 20px;
+}
+main #devide .container #posts .items .item .content .title:hover {
+  color: #d31c3d;
+}
+main #devide .container #posts .items .item .content .author-date {
+  margin-top: 15px;
+}
+main #devide .container #posts .items .item .content .author-date span {
+  color: #bdbbc4;
+  font-size: 15px;
+}
+main #devide .container #posts .items .item .content .author-date span:last-child {
+  margin-left: 20px;
+}
+main #devide .container #posts .items .item .content .description {
+  color: #bdbbc4;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 96%;
+}
+main #devide .container #posts .items .item .content .more {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s all;
+  font-size: 13px;
+}
+main #devide .container #posts .items .item .content .more:hover {
+  color: #d31c3d;
+}
+main #devide .container #posts .pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+}
+main #devide .container #posts .pagination .prev, main #devide .container #posts .pagination .next {
+  color: white;
+  transition: 0.3s all;
+  text-decoration: none;
+  font-size: 12px;
+}
+main #devide .container #posts .pagination .prev:hover, main #devide .container #posts .pagination .next:hover {
+  color: #d31c3d;
+}
+main #devide .container #posts .pagination .number {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: 0.3s all;
+  width: 35px;
+  height: 35px;
+  font-size: 12px;
+  border-radius: 50%;
+}
+main #devide .container #posts .pagination .number:hover {
+  background-color: #d31c3d;
+}
+main #devide .container #posts .pagination .disabled {
+  pointer-events: none;
+  background-color: #d31c3d;
+}
+main #devide .container #posts .pagination .hide {
+  display: none;
+}/*# sourceMappingURL=blog.css.map */

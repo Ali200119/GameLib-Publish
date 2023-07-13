@@ -1,0 +1,165 @@
+﻿@model BlogDetailsVM
+@inject UserManager<AppUser> _userManager;
+
+@{
+    ViewBag.Title = Model.Blog.Title;
+    AppUser user = _userManager.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+}
+
+@section CSS {
+    <link rel="stylesheet" href="~/assets/scss/blog/blog-details.css">
+}
+
+@section NavBar {
+    <ul class="navbar">
+        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
+        <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+        <li><a asp-controller="About" asp-action="Index">About</a></li>
+    </ul>
+}
+
+<section id="blog-bg">
+    <img src="~/assets/img/blog/@Model.Blog.BlogImages.FirstOrDefault(bi => bi.IsMain).Name">
+</section>
+
+<section id="title">
+    <div class="content">
+        <span class="game">@Model.Blog.Game</span>
+
+        <h1>@Model.Blog.Title</h1>
+
+        <div class="date-author-comments">
+            <h4>@Model.Blog.CreatedAt.ToString("MMMM dd, yyyy", new CultureInfo("en"))</h4>
+            <h4>@Model.Blog.BlogAuthor.Name</h4>
+            <h4><span></span> Comments</h4>
+        </div>
+    </div>
+</section>
+
+<section id="devide">
+    <div class="container">
+        <section id="panel">
+            <div class="search">
+                <h3 class="title">Search</h3>
+
+                <div class="search-input">
+                    <input type="text" placeholder="Search by blogs">
+
+                    <i class="fa-solid fa-magnifying-glass circle"></i>
+                </div>
+            </div>
+
+            <div class="latest-posts">
+                <h3 class="title">@Model.SectionHeaders["BlogLatestBlogs"]</h3>
+
+                <div class="posts">
+                    @foreach (var blog in Model.LatestBlogs)
+                    {
+                        <div class="post">
+                            <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id" class="image">
+                                <img src="~/assets/img/blog/@blog.BlogImages.FirstOrDefault(bi => bi.IsMain).Name">
+                            </a>
+
+                            <div class="content">
+                                <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id" class="title">@blog.Title</a>
+
+                                <div class="author-date">
+                                    <span>By @blog.BlogAuthor.Name</span>
+                                    <span>@blog.CreatedAt.ToString("MMMM dd, yyyy", new CultureInfo("en"))</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="social">
+                <h3 class="title">@Model.SectionHeaders["Social"]</h3>
+
+                <div class="items">
+                    @foreach (var social in Model.Socials)
+                    {
+                        <a href="@social.Link" class="item" style="background-color: @social.Color;">
+                            @Html.Raw(social.Icon)
+                        </a>
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section id="blog-content">
+            <div class="text">
+                @Html.Raw(Model.Blog.Description)
+            </div>
+
+            <div class="images">
+                @foreach (var blog in Model.Blog.BlogImages.Where(bi => !bi.IsMain))
+                {
+                    <img src="~/assets/img/blog/@blog.Name">
+                }
+            </div>
+
+            <div class="comments">
+                <h1 class="title"><span>0</span> Thoughts on "@Model.Blog.Title"</h1>
+
+                <div class="items">
+                    @foreach (var comment in Model.Comments)
+                    {
+                        <div class="item">
+                            <h4 class="username">@comment.User.UserName</h4>
+
+                            <span class="date">@comment.CreatedAt.ToString("MMMM dd, yyyy", new CultureInfo("en")) at @comment.CreatedAt.ToString("hh:mm tt")</span>
+
+                            <p class="description">
+                                @comment.Comment
+                            </p>
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                if (user.Id == comment.User.Id)
+                                {
+                                    <i data-commentId="@comment.Id" class="fa-solid fa-trash-can delete"></i>
+                                }
+                            }
+                        </div>
+                    }
+                </div>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form class="post-comment" method="post" asp-controller="Blog" asp-action="PostComment" asp-route-userId="@user.Id" asp-route-blogId="@Model.Blog.Id">
+                        <h1 class="title">Leave a Comment</h1>
+
+                        <textarea asp-for="BlogComment.Comment" rows="10" placeholder="Your Comment"></textarea>
+
+                        <button type="submit" class="btn-shine">Post Comment</button>
+                    </form>
+                }
+
+                else
+                {
+                    <form class="post-comment" method="post" asp-controller="Blog" asp-action="PostComment">
+                        <h1 class="title">Leave a Comment</h1>
+
+                        <textarea asp-for="BlogComment.Comment" rows="10" placeholder="Your Comment"></textarea>
+
+                        <button type="submit" class="btn-shine">Post Comment</button>
+                    </form>
+                }
+            </div>
+        </section>
+    </div>
+</section>
+
+<section id="up">
+    <div class="arrow">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/assets/js/components/scroll-to-up.js"></script>
+    <script src="~/assets/js/blog-details.js"></script>
+}

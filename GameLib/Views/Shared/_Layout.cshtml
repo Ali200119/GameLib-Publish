@@ -1,0 +1,111 @@
+﻿@inject IStaticDataService _staticDataService;
+@inject ISocialService _socialService;
+@inject UserManager<AppUser> _userManager;
+@inject ICartService _cartService;
+
+@{
+    IEnumerable<Social> socials = await _socialService.GetAllAsync();
+    AppUser user = _userManager.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @RenderSection("CSS", false)
+    <link rel="icon" href="~/assets/img/static-images/@_staticDataService.GetAllSettings()["Icon"]">
+    <title>@ViewBag.Title</title>
+</head>
+
+<body>
+    <header>
+        <a asp-controller="Home" asp-action="Index"><img src="~/assets/img/static-images/@_staticDataService.GetAllSettings()["Logo"]" alt="logo"></a>
+
+        @RenderSection("NavBar", false)
+
+    <div class="user-panel">
+        <div class="search">
+            <i class="fa-solid fa-magnifying-glass circle open-close"></i>
+        </div>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (await _cartService.CheckCartAsync(user.Id) != 0)
+            {
+                <a style="position: relative" asp-controller="Cart" asp-action="Index" asp-route-userId="@user.Id">
+                    <i class="fa-solid fa-bag-shopping circle"></i>
+                    <div style="position: absolute; background-color: #d31c3d; width: 6px; height: 6px; border-radius: 50%; top: 7px; right: 7px;"></div>
+                </a>
+            }
+
+            else
+            {
+                <a class="cart" asp-controller="Cart" asp-action="Index" asp-route-userId="@user.Id"><i class="fa-solid fa-bag-shopping circle"></i></a>
+            }
+        }
+
+        else
+        {
+            <a asp-controller="Cart" asp-action="Index"><i class="fa-solid fa-bag-shopping circle"></i></a>
+        }
+
+        <div class="user">
+            <i class="fa-solid fa-user circle"></i>
+
+            <div class="login-register">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="#">@user.FullName</a>
+                    <a class="logout" href="#">Logout</a>
+                }
+
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login">Login</a>
+                    <a asp-controller="Account" asp-action="Register">Register</a>
+                }
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <main>
+        @RenderBody()
+
+        <section id="search">
+            <div class="search-input">
+                <input type="text" placeholder="Type to Search Games...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <i class="fa-regular fa-circle-xmark close"></i>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social" style="background-image: url('/assets/img/static-images/@_staticDataService.GetAllSettings()["FooterBG"]');">
+            <div class="social-list">
+                @foreach (var social in socials.OrderByDescending(s => s.CreatedAt).Take(4))
+                {
+                    <a href="@social.Link" class="btn-shine">
+                        @Html.Raw(@social.Icon)
+                    </a>
+                }
+            </div>
+        </div>
+
+        <div class="copyright">
+            <h4>@_staticDataService.GetAllSettings()["Copyright"]</h4>
+        </div>
+    </footer>
+
+
+
+    <script src="https://kit.fontawesome.com/0e5ed62bbe.js" crossorigin="anonymous"></script>
+    <script src="~/assets/js/layout.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

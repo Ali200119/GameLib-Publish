@@ -1,0 +1,39 @@
+﻿@model List<AdvantageListVM>
+
+@{
+    ViewBag.Title = "Advantages";
+}
+
+<div style="width: 70%; margin-left: 40px">
+    <div style="display: flex; justify-content:right">
+        <a asp-area="Admin" asp-controller="Advantage" asp-action="Create" style="color: white; background-color: green; border: none" class="btn my-5">Create</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Icon</th>
+                <th scope="col">Title</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var advantage in Model)
+            {
+                <tr>
+                    <td>@Html.Raw(advantage.Icon)</td>
+                    <td>@advantage.Title</td>
+                    <td>
+                        <div style="display: flex">
+                            <a asp-area="Admin" asp-controller="Advantage" asp-action="Details" asp-route-id="@advantage.Id" style="color: white;background-color: purple" class="btn">Details</a>
+                            <a asp-area="Admin" asp-controller="Advantage" asp-action="Edit" asp-route-id="@advantage.Id" style="color: black; margin-left: 10px; background-color: yellow" class="btn">Edit</a>
+                            <form asp-area="Admin" asp-controller="Advantage" asp-action="Delete" asp-route-id="@advantage.Id">
+                                <button style="color: black; margin-left: 10px; background-color: red" type="submit" class="btn">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

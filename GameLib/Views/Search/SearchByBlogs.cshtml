@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Blog>
+
+@{
+    ViewBag.Title = $"Search Results for \"{ViewBag.SearchText}\"";
+}
+
+@section CSS {
+    <link rel="stylesheet" href="~/assets/scss/search/blog-search-results.css">
+}
+
+@section NavBar {
+    <ul class="navbar">
+        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
+        <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+        <li><a asp-controller="About" asp-action="Index">About</a></li>
+    </ul>
+}
+
+<section id="search-results">
+    <div class="container">
+        @if (Model.Count() != 0)
+        {
+            <h1 class="search-text">Search Results for: @ViewBag.SearchText</h1>
+
+            <div class="items">
+                @foreach (var blog in Model)
+                {
+                    <div class="post">
+                        <a class="image" asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">
+                            <img src="~/assets/img/blog/@blog.BlogImages.FirstOrDefault(bi => bi.IsMain).Name">
+                            <span>@blog.Game</span>
+                        </a>
+
+                        <div class="content">
+                            <a class="title" asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">@blog.Title</a>
+
+                            <div class="author-date">
+                                <span>By @blog.BlogAuthor</span>
+                                <span>@blog.CreatedAt.ToString("MMMM dd, yyyy", new CultureInfo("en"))</span>
+                            </div>
+
+                            <p class="description">
+                                @blog.ShortDescription
+                            </p>
+
+                            <a class="more" asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">READ MORE</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+        else
+        {
+            <div class="not-found">
+                <h1 class="title">Nothing Found</h1>
+
+                <p class="description">Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+
+                <a asp-controller="Home" asp-action="Index" class="btn-shine">Back to Home</a>
+            </div>
+        }
+    </div>
+</section>
+
+<section id="up">
+    <div class="arrow">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+</section>

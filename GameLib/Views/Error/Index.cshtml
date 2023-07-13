@@ -1,0 +1,23 @@
+﻿@model int
+
+@section CSS {
+    <link rel="stylesheet" href="~/assets/scss/error/error.css">
+}
+
+@section NavBar {
+    <ul class="navbar">
+        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
+        <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+        <li><a asp-controller="About" asp-action="Index">About</a></li>
+    </ul>
+}
+
+<section id="content">
+    <h1 class="status-code">@Model</h1>
+
+    <h3 class="description">@ViewBag.ErrorMessage</h3>
+
+    <a asp-controller="Home" asp-action="Index" class="btn-shine">Go To Home</a>
+</section>

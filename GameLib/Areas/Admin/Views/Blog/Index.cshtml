@@ -1,0 +1,41 @@
+﻿@model List<BlogListVM>
+
+@{
+    ViewBag.Title = "Blogs";
+}
+
+<div style="width: 70%; margin-left: 40px">
+    <div style="display: flex; justify-content:right">
+        <a asp-area="Admin" asp-controller="Blog" asp-action="Create" style="color: white; background-color: green; border: none" class="btn my-5">Create</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col">Game</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var blog in Model)
+            {
+                <tr>
+                    <td><img style="width: 50px; height: 50px; object-fit: cover;" src="~/assets/img/blog/@blog.MainImage" /></td>
+                    <td>@blog.Title</td>
+                    <td>@blog.Game</td>
+                    <td>
+                        <div style="display: flex">
+                            <a asp-area="Admin" asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id" style="color: white;background-color: purple" class="btn">Details</a>
+                            <a asp-area="Admin" asp-controller="Blog" asp-action="Edit" asp-route-id="@blog.Id" style="color: black; margin-left: 10px; background-color: yellow" class="btn">Edit</a>
+                            <form asp-area="Admin" asp-controller="Blog" asp-action="Delete" asp-route-id="@blog.Id">
+                                <button style="color: black; margin-left: 10px; background-color: red" type="submit" class="btn">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

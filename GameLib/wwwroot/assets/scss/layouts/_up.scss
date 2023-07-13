@@ -1,0 +1,30 @@
+#up {
+    position: fixed;
+    z-index: 1;
+    right: 30px;
+    bottom: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s all;
+
+    .arrow {
+        transition: 0.3s all;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #9492a0;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+
+        i {
+            color: white;
+        }
+
+        &:hover {
+            background-color: #d31c3d;
+            border-color: #d31c3d;
+        }
+    }
+}

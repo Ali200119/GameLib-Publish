@@ -1,0 +1,69 @@
+﻿@model BlogEditVM
+
+@{
+    ViewBag.Title = "Edit Blog";
+}
+
+<div style="margin-left: 40px; margin-top: 40px">
+    <form method="post" asp-area="Admin" asp-controller="Blog" asp-action="Edit" enctype="multipart/form-data">
+        <div class="mb-3">
+            @foreach (var image in Model.Images)
+            {
+                <img style="width: 150px; height: 150px; border-radius: unset; object-fit: cover" src="~/assets/img/blog/@image" />
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Upload your blog images here (first image will be main)</label>
+            <input class="form-control" id="formFile" asp-for="Photos">
+            <span class="text-danger" asp-validation-for="Photos"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Title"></label>
+            <input class="form-control" asp-for="Title" placeholder="Title" autocomplete="off">
+            <span class="text-danger" asp-validation-for="Title"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Game"></label>
+            <input class="form-control" asp-for="Game" placeholder="Game" autocomplete="off">
+            <span class="text-danger" asp-validation-for="Game"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ShortDescription"></label>
+            <input class="form-control" asp-for="ShortDescription" placeholder="Short Description" autocomplete="off">
+            <span class="text-danger" asp-validation-for="ShortDescription"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description"></label>
+            <textarea class="form-control" asp-for="Description" placeholder="Description" autocomplete="off"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+
+        <div class="mb-3">
+            <input type="checkbox" value="true" asp-for="FavBlog">
+            <label asp-for="FavBlog"></label>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="BlogAuthorId"></label>
+            <select class="form-select" asp-for="BlogAuthorId" asp-items="@ViewBag.BlogAuthors"></select>
+            <span class="text-danger" asp-validation-for="BlogAuthorId"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-4">Update</button>
+    </form>
+
+    <a class="btn mt-4" style="color: white;background-color: gray" asp-area="Admin" asp-controller="Blog" asp-action="Index">Back</a>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/assets/ckeditor/ckeditor.js"></script>
+
+    <script>CKEDITOR.replace("Description");</script>
+}

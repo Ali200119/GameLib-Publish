@@ -1,0 +1,265 @@
+﻿@model GameDetailsVM
+@inject UserManager<AppUser> _userManager;
+
+@{
+    ViewBag.Title = Model.Game.Name;
+    AppUser user = _userManager.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+}
+
+@section CSS {
+    <link rel="stylesheet" href="~/assets/scss/shop/product-details.css">
+}
+
+@section NavBar {
+    <ul class="navbar">
+        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
+        <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+        <li><a asp-controller="About" asp-action="Index">About</a></li>
+    </ul>
+}
+
+<section id="cover-key-art-options">
+    <section id="cover">
+        <img src="~/assets/img/games/@Model.Game.GameImages.FirstOrDefault(g => g.IsMain).Name">
+    </section>
+
+    <section id="key-art-options">
+        <div class="container">
+            <div class="key-art">
+                <img src="~/assets/img/games/@Model.Game.GameImages.FirstOrDefault(g => g.IsMain).Name">
+            </div>
+
+            <div class="options">
+                <h2 class="title">@Model.Game.Name</h2>
+
+                <div class="platforms">
+                    <select asp-items="@ViewBag.Platforms">
+                    </select>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+                <div class="price">
+                    <span>$</span>
+                    <span>@Model.Game.Price</span>
+                </div>
+
+                @if (Model.Game.ReleaseDate > DateTime.Now)
+                {
+                    <div class="coming-soon">
+                        <button>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Coming Soon
+                        </button>
+                    </div>
+                }
+
+                else
+                {
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="add-to-cart">
+                            <button data-gameId="@Model.Game.Id" data-userId="@user.Id">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                Add to Cart
+                            </button>
+                        </div>
+                    }
+
+                    else
+                    {
+                        <div class="login">
+                            <button>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                Add to Cart
+                            </button>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+</section>
+
+<section id="about-info">
+    <div class="container">
+        <div class="about">
+            <h1 class="title">@Model.SectionHeaders["GameDetailsAbout"]</h1>
+
+            <p class="description">
+                @Model.Game.Description
+            </p>
+        </div>
+
+        <div class="info">
+            <div class="info-title">
+                <h4>Developer:</h4>
+                <h4>Publisher:</h4>
+                <h4>Release date:</h4>
+                <h4>Genre:</h4>
+            </div>
+
+            <div class="info-data">
+                <h4>@Model.Game.Developer</h4>
+                <h4>@Model.Game.Publisher</h4>
+                <h4>@Model.Game.ReleaseDate.ToString("MMMM dd, yyyy", new CultureInfo("en"))</h4>
+                <div>
+                    @foreach (var genre in Model.Game.GameGenres.Select(gg => gg.Genre))
+                    {
+                        <span>@genre.Name</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="visuals">
+    <div class="container">
+        <h1 class="title">@Model.SectionHeaders["GameDetailsVisuals"]</h1>
+
+        <div class="video">
+            <iframe width="100%" height="100%"
+                    src="https://www.youtube.com/embed/@Model.Game.Trailer?autoplay=1&mute=1&loop=1&playlist=@Model.Game.Trailer"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+        </div>
+
+        <div class="screenshots">
+            <div class="large-image screenshot">
+                <img src="~/assets/img/games/@Model.Game.GameImages.FirstOrDefault(gi => !gi.IsMain).Name">
+            </div>
+
+            <div class="images">
+                @foreach (var screenshot in Model.Game.GameImages.Skip(2).Where(gi => !gi.IsMain))
+                {
+                    <div class="image screenshot">
+                        <img src="~/assets/img/games/@screenshot.Name">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="countdown">
+    <img src="~/assets/img/games/@Model.Game.GameImages.FirstOrDefault(g => g.IsMain).Name">
+
+    @if (Model.Game.ReleaseDate > DateTime.Now)
+    {
+        <div class="time" data-day="@Model.Game.ReleaseDate.ToString("dd")" data-month="@Model.Game.ReleaseDate.ToString("MMMM", new CultureInfo("en"))" data-year="@Model.Game.ReleaseDate.ToString("yyyy")">
+            <div class="days">
+                <span>00</span>
+                <h4>DAYS</h4>
+            </div>
+
+            <div class="hours">
+                <span>00</span>
+                <h4>HOURS</h4>
+            </div>
+
+            <div class="minutes">
+                <span>00</span>
+                <h4>MINUTES</h4>
+            </div>
+
+            <div class="seconds">
+                <span>00</span>
+                <h4>SECONDS</h4>
+            </div>
+        </div>
+    }
+
+    else
+    {
+        <div class="released">
+            <h1>RELEASED</h1>
+        </div>
+    }
+</section>
+
+<section id="comments">
+    <div class="container">
+        <h1 class="title"><span>0</span> Thoughts on @Model.Game.Name</h1>
+
+        <div class="items">
+            @foreach (var comment in Model.Comments)
+            {
+                <div class="item">
+                    <h4 class="username">@comment.User.UserName</h4>
+
+                    <span class="date">@comment.CreatedAt.ToString("MMMM dd, yyyy", new CultureInfo("en")) at @comment.CreatedAt.ToString("hh:mm tt")</span>
+
+                    <p class="description">
+                        @comment.Comment
+                    </p>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (user.Id == comment.User.Id)
+                        {
+                            <i data-commentId="@comment.Id" class="fa-solid fa-trash-can delete"></i>
+                        }
+                    }
+                </div>
+            }
+        </div>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <form class="post-comment" method="post" asp-controller="Shop" asp-action="PostComment" asp-route-userId="@user.Id" asp-route-gameId="@Model.Game.Id">
+                <h1 class="title">Leave a Comment</h1>
+
+                <textarea asp-for="GameComment.Comment" rows="10" placeholder="Your Comment"></textarea>
+
+                <button type="submit" class="btn-shine">Post Comment</button>
+            </form>
+        }
+
+        else
+        {
+            <form class="post-comment" method="post" asp-controller="Shop" asp-action="PostComment">
+                <h1 class="title">Leave a Comment</h1>
+
+                <textarea asp-for="GameComment.Comment" rows="10" placeholder="Your Comment"></textarea>
+
+                <button type="submit" class="btn-shine">Post Comment</button>
+            </form>
+        }
+    </div>
+</section>
+
+<section id="up">
+    <div class="arrow">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+</section>
+
+<section id="game-added-alert">
+</section>
+
+<section id="full-screen">
+    <div class="image">
+        <img>
+    </div>
+
+    <i class="fa-regular fa-circle-xmark close"></i>
+</section>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/assets/js/components/scroll-to-up.js"></script>
+    <script src="~/assets/js/product-details.js"></script>
+}

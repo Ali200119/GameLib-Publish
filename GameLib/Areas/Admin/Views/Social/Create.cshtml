@@ -1,0 +1,42 @@
+﻿@model SocialCreateVM
+
+@{
+    ViewBag.Title = "Create Social";
+}
+
+<div style="margin-left: 40px; margin-top: 40px">
+    <form method="post" asp-area="Admin" asp-controller="Social" asp-action="Create">
+        <div class="mb-3">
+            <label>Enter here "i" tag from Font Awesome</label>
+            <input class="form-control" asp-for="Icon" placeholder="Icon" autocomplete="off">
+            <span class="text-danger" asp-validation-for="Icon"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" placeholder="Name" autocomplete="off">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Link"></label>
+            <input class="form-control" asp-for="Link" placeholder="Link" autocomplete="off">
+            <span class="text-danger" asp-validation-for="Link"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Enter color's name or HEX code</label>
+            <input class="form-control" asp-for="Color" placeholder="Color" autocomplete="off">
+            <span class="text-danger" asp-validation-for="Color"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-4">Create</button>
+    </form>
+
+    <a class="btn mt-4" style="color: white;background-color: gray" asp-area="Admin" asp-controller="Social" asp-action="Index">Back</a>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

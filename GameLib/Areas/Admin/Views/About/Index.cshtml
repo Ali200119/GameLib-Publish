@@ -1,0 +1,29 @@
+﻿@model AboutVM
+
+@{
+    ViewBag.Title = "About";
+}
+
+<div style="width: 70%; margin-left: 40px">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="~/assets/img/about/@Model.Image" /></td>
+                <td>@Model.Title</td>
+                <td>
+                    <div style="display: flex">
+                        <a asp-area="Admin" asp-controller="About" asp-action="Details" style="color: white;background-color: purple" class="btn">Details</a>
+                        <a asp-area="Admin" asp-controller="About" asp-action="Edit" style="color: black; margin-left: 10px; background-color: yellow" class="btn">Edit</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

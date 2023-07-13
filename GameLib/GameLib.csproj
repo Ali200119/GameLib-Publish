@@ -1,0 +1,111 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Views\Home\" />
+    <None Remove="Views\About\" />
+    <None Remove="Views\Blog\" />
+    <None Remove="Views\Cart\" />
+    <None Remove="Views\Contact\" />
+    <None Remove="Views\Shop\" />
+    <None Remove="Views\Search\" />
+    <None Remove="Views\Error\" />
+    <None Remove="Views\Account\" />
+    <None Remove="Areas\" />
+    <None Remove="Areas\Admin\" />
+    <None Remove="Areas\Admin\Controllers\" />
+    <None Remove="Areas\Admin\ViewModels\" />
+    <None Remove="Areas\Admin\Views\" />
+    <None Remove="Areas\Admin\Views\Shared\" />
+    <None Remove="Areas\Admin\Views\Dashboard\" />
+    <None Remove="Helpers\" />
+    <None Remove="Helpers\Enums\" />
+    <None Remove="Areas\Admin\ViewModels\About\" />
+    <None Remove="Areas\Admin\Views\About\" />
+    <None Remove="Areas\Admin\ViewModels\Advantage\" />
+    <None Remove="Areas\Admin\Views\Advantage\" />
+    <None Remove="Areas\Admin\ViewModels\BlogAuthor\" />
+    <None Remove="Areas\Admin\Views\BlogAuthor\" />
+    <None Remove="Areas\Admin\ViewModels\Developer\" />
+    <None Remove="Areas\Admin\Views\Developer\" />
+    <None Remove="Areas\Admin\ViewModels\Social\" />
+    <None Remove="Areas\Admin\Views\Social\" />
+    <None Remove="Areas\Admin\ViewModels\Platform\" />
+    <None Remove="Areas\Admin\ViewModels\Genre\" />
+    <None Remove="Areas\Admin\ViewModels\Subscribe\" />
+    <None Remove="Areas\Admin\ViewModels\Blog\" />
+    <None Remove="Areas\Admin\Views\Blog\" />
+    <None Remove="Areas\Admin\ViewModels\Contact\" />
+    <None Remove="Areas\Admin\ViewModels\Game\" />
+    <None Remove="Areas\Admin\Views\Game\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Home\" />
+    <Folder Include="Views\About\" />
+    <Folder Include="Views\Blog\" />
+    <Folder Include="Views\Cart\" />
+    <Folder Include="Views\Contact\" />
+    <Folder Include="Views\Shop\" />
+    <Folder Include="Views\Search\" />
+    <Folder Include="Views\Error\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="wwwroot\assets\templates\" />
+    <Folder Include="Areas\" />
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\ViewModels\" />
+    <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\Dashboard\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Helpers\Enums\" />
+    <Folder Include="Areas\Admin\ViewModels\About\" />
+    <Folder Include="Areas\Admin\Views\About\" />
+    <Folder Include="Areas\Admin\ViewModels\Advantage\" />
+    <Folder Include="Areas\Admin\Views\Advantage\" />
+    <Folder Include="Areas\Admin\ViewModels\BlogAuthor\" />
+    <Folder Include="Areas\Admin\Views\BlogAuthor\" />
+    <Folder Include="Areas\Admin\ViewModels\Developer\" />
+    <Folder Include="Areas\Admin\Views\Developer\" />
+    <Folder Include="Areas\Admin\ViewModels\Social\" />
+    <Folder Include="Areas\Admin\Views\Social\" />
+    <Folder Include="Areas\Admin\ViewModels\Platform\" />
+    <Folder Include="Areas\Admin\ViewModels\Genre\" />
+    <Folder Include="Areas\Admin\ViewModels\Subscribe\" />
+    <Folder Include="Areas\Admin\ViewModels\Blog\" />
+    <Folder Include="Areas\Admin\Views\Blog\" />
+    <Folder Include="Areas\Admin\ViewModels\Contact\" />
+    <Folder Include="Areas\Admin\ViewModels\Game\" />
+    <Folder Include="Areas\Admin\Views\Game\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.15">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.15">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.14" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\assets\templates\" />
+  </ItemGroup>
+</Project>

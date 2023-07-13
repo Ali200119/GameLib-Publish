@@ -1,0 +1,85 @@
+﻿@model BlogDetailsVM
+
+@{
+    ViewBag.Title = "Blog Details";
+}
+
+<style>
+    h1, h2, p {
+        color: black;
+    }
+
+    p {
+        font-size: 16px;
+    }
+</style>
+
+<div style="width: 70%; margin-left: 40px">
+    <div class="mt-3">
+        <h1>Images</h1>
+
+        @foreach (var image in Model.Images)
+        {
+            <img style="width: 150px; height: 150px; border-radius: unset; object-fit: cover" src="~/assets/img/blog/@image" />
+        }
+    </div>
+
+    <div class="mt-5">
+        <h1>Title</h1>
+
+        <h2 class="mt-2">@Model.Title</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Game</h1>
+
+        <h2 class="mt-2">@Model.Game</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Short Description</h1>
+
+        <p class="mt-2">@Model.ShortDescription</p>
+    </div>
+
+    <div class="mt-5">
+        <h1>Description</h1>
+
+        <p class="mt-2">@Html.Raw(Model.Description)</p>
+    </div>
+
+    <div class="mt-5">
+        <h1>Favorite Blog</h1>
+
+        <h2 class="mt-2">@(Model.FavBlog?"Yes":"No")</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Blog Author</h1>
+
+        <h2 class="mt-2">@Model.BlogAuthor</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Create Time</h1>
+
+        <h2 class="mt-2">@Model.CreatedAt.ToString("dd MMMM yyyy hh:mm tt", new CultureInfo("en"))</h2>
+    </div>
+
+    <div class="mt-5">
+        <h1>Update Time</h1>
+
+        @if (Model.ModifiedAt.ToString("dd MMMM yyyy hh:mm:ss", new CultureInfo("en")) == Model.CreatedAt.ToString("dd MMMM yyyy hh:mm:ss", new CultureInfo("en")))
+        {
+            <h2 class="mt-2">Not modified yet</h2>
+        }
+
+        else
+        {
+            <h2 class="mt-2">@Model.ModifiedAt.ToString("dd MMMM yyyy hh:mm tt", new CultureInfo("en"))</h2>
+        }
+    </div>
+
+
+    <a class="btn mt-5" style="color: white;background-color: gray" asp-area="Admin" asp-controller="Blog" asp-action="Index">Back</a>
+</div>
